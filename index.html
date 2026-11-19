@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monika & Dawid – Zaproszenie Ślubne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ======= RESET & BASE ======= */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: #d4cfc8;
+            background: #1a1816;
+            overflow-x: hidden;
+        }
+
+        /* ======= TYPOGRAPHY ======= */
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #b8860b;
+            text-align: center;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.05em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #7a756e;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2em;
+        }
+
+        /* ======= HERO SECTIONS ======= */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .hero-content .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-style: italic;
+            font-weight: 300;
+            color: #d4af37;
+            display: block;
+            margin: 0.3em 0;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            line-height: 1.1;
+            text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+        }
+
+        .hero-content .date-line {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            letter-spacing: 0.3em;
+            margin-top: 1.5em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: rgba(255,255,255,0.7);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ======= PARALLAX SECTIONS (2nd and 3rd bg) ======= */
+        .parallax-section {
+            position: relative;
+            height: 70vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .parallax-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .parallax-content h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.3);
+        }
+
+        .parallax-content p {
+            font-size: 1.1rem;
+            margin-top: 1em;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+        }
+
+        /* ======= COUNTDOWN ======= */
+        .countdown-section {
+            padding: 5rem 2rem;
+            background: #1a1816;
+            text-align: center;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-item .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            color: #b8860b;
+            line-height: 1;
+        }
+
+        .countdown-item .label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #7a756e;
+            margin-top: 0.5em;
+        }
+
+        .countdown-divider {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: #d4af37;
+            opacity: 0.4;
+            align-self: flex-start;
+            padding-top: 0.2em;
+        }
+
+        /* ======= INFO SECTIONS ======= */
+        .info-section {
+            padding: 5rem 2rem;
+            background: #1a1816;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: #242120;
+            border-radius: 2px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+            border: 1px solid rgba(184, 134, 11, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+        }
+
+        .info-card .icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            object-fit: contain;
+            display: block;
+        }
+
+        .info-card h3 {
+            font-size: 1.6rem;
+            color: #b8860b;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.05em;
+        }
+
+        .info-card .time {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #d4cfc8;
+            margin-bottom: 0.5em;
+        }
+
+        .info-card .place {
+            font-size: 1rem;
+            color: #9a948c;
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+        }
+
+        .info-card .address {
+            font-size: 0.85rem;
+            color: #7a756e;
+            line-height: 1.5;
+            margin-bottom: 1.5em;
+        }
+
+        .info-card .map-link {
+            display: inline-block;
+            padding: 0.6em 2em;
+            border: 1px solid #b8860b;
+            color: #b8860b;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .info-card .map-link:hover {
+            background: #b8860b;
+            color: #fff;
+        }
+
+        /* ======= DETAILS SECTION (gifts, accommodation, afterparty) ======= */
+        .details-section {
+            padding: 5rem 2rem;
+            background: #211f1d;
+        }
+
+        .details-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .detail-block {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: #242120;
+            border-radius: 2px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+            border: 1px solid rgba(184, 134, 11, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .detail-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+        }
+
+        .detail-block .icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1.5rem;
+            stroke: #b8860b;
+            fill: none;
+            stroke-width: 1.2;
+        }
+
+        .detail-block h3 {
+            font-size: 1.4rem;
+            color: #b8860b;
+            margin-bottom: 1em;
+            letter-spacing: 0.05em;
+        }
+
+        .detail-block p {
+            font-size: 0.95rem;
+            color: #9a948c;
+            line-height: 1.8;
+        }
+
+        .detail-block strong {
+            color: #d4af37;
+            font-weight: 500;
+        }
+
+        .rsvp-contacts {
+            margin-top: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .rsvp-contact {
+            color: #d4cfc8;
+        }
+
+        .rsvp-contact a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .rsvp-contact a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* ======= ORNAMENT / DIVIDERS ======= */
+        .ornament {
+            text-align: center;
+            padding: 1rem 0;
+            color: #d4af37;
+            opacity: 0.5;
+            font-size: 1.5rem;
+            letter-spacing: 0.5em;
+        }
+
+        /* ======= GALLERY ======= */
+        .gallery-section {
+            padding: 5rem 2rem;
+            background: #1a1816;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1;
+            border-radius: 2px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(184, 134, 11, 0);
+            transition: background 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(184, 134, 11, 0.15);
+        }
+
+        /* ======= LIGHTBOX ======= */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 2px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Cormorant Garamond', serif;
+            transition: color 0.3s;
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover {
+            color: #d4af37;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: color 0.3s;
+            z-index: 10001;
+        }
+
+        .lightbox-nav:hover {
+            color: #d4af37;
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+        }
+
+        .lightbox-next {
+            right: 1rem;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+        }
+
+        /* ======= FOOTER ======= */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #111010;
+            color: rgba(255,255,255,0.4);
+        }
+
+        footer .names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #d4af37;
+            margin-bottom: 0.5em;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+        }
+
+        /* ======= ANIMATIONS ======= */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ======= RESPONSIVE ======= */
+        @media (max-width: 768px) {
+            .hero-bg, .parallax-bg {
+                background-attachment: scroll;
+            }
+
+            /* Responsive focal points for mobile backgrounds */
+            .hero-bg {
+                background-position: 68% center;
+            }
+
+            .parallax-section {
+                height: 55vh;
+                min-height: 380px;
+            }
+
+            .parallax-bg-2 {
+                background-position: 30% center;
+            }
+
+            .parallax-bg-3 {
+                background-position: center center;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .lightbox-nav {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-bg {
+                background-position: 68% center;
+            }
+
+            .parallax-section {
+                height: 50vh;
+                min-height: 340px;
+            }
+
+            .parallax-bg-2 {
+                background-position: 30% center;
+            }
+
+            .parallax-bg-3 {
+                background-position: center center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section - Photo 1 -->
+    <section class="hero" id="home">
+        <div class="hero-bg" style="background-image: url('pic/1_web.jpg');"></div>
+        <div class="hero-content fade-in">
+            <h1>
+                Monika
+                <span class="ampersand">&</span>
+                Dawid
+            </h1>
+            <div class="date-line">31 · 07 · 2027</div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section" id="countdown">
+        <div class="ornament">✦ ✦ ✦</div>
+        <h2 class="section-title fade-in">Do naszego ślubu pozostało</h2>
+        <div class="countdown fade-in" id="countdownTimer">
+            <div class="countdown-item">
+                <div class="number" id="days">---</div>
+                <div class="label">Dni</div>
+            </div>
+            <div class="countdown-divider">:</div>
+            <div class="countdown-item">
+                <div class="number" id="hours">--</div>
+                <div class="label">Godzin</div>
+            </div>
+            <div class="countdown-divider">:</div>
+            <div class="countdown-item">
+                <div class="number" id="minutes">--</div>
+                <div class="label">Minut</div>
+            </div>
+            <div class="countdown-divider">:</div>
+            <div class="countdown-item">
+                <div class="number" id="seconds">--</div>
+                <div class="label">Sekund</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section - Photo 2 -->
+    <section class="parallax-section">
+        <div class="parallax-bg parallax-bg-2" style="background-image: url('pic/2_web.jpg');"></div>
+        <div class="parallax-content fade-in">
+            <h2>Zapraszamy na nasz ślub</h2>
+            <p>31 lipca 2027 · Szczecin</p>
+        </div>
+    </section>
+
+    <!-- Ceremony & Reception & Hotel Info -->
+    <section class="info-section" id="ceremony">
+        <div class="ornament">✦ ✦ ✦</div>
+        <h2 class="section-title fade-in">Gdzie i kiedy</h2>
+        <p class="section-subtitle fade-in">Plan dnia</p>
+        <div class="info-cards">
+            <!-- Ceremony Card -->
+            <div class="info-card fade-in">
+                <img class="icon" src="pic/rings-2.png" alt="Obrączki">
+                <h3>Ceremonia</h3>
+                <div class="time">14:00</div>
+                <div class="place">
+                    Urząd Stanu Cywilnego<br>
+                    w Szczecinie
+                </div>
+                <div class="address">
+                    Pl. Armii Krajowej 1<br>
+                    70-455 Szczecin
+                </div>
+                <a href="https://maps.google.com/?q=Pl.+Armii+Krajowej+1,+70-455+Szczecin" target="_blank" class="map-link">
+                    Zobacz na mapie →
+                </a>
+            </div>
+            <!-- Reception Card -->
+            <div class="info-card fade-in">
+                <img class="icon" src="pic/champagne-4.png" alt="Szampan">
+                <h3>Wesele</h3>
+                <div class="time">15:00 – 01:00</div>
+                <div class="place">
+                    Grand Park Hotel<br>
+                    Szczecin
+                </div>
+                <div class="address">
+                    ul. Juliusza Słowackiego 18<br>
+                    71-434 Szczecin
+                </div>
+                <a href="https://maps.google.com/?q=Juliusza+Słowackiego+18,+71-434+Szczecin" target="_blank" class="map-link">
+                    Zobacz na mapie →
+                </a>
+            </div>
+            <!-- Hotel Card -->
+            <div class="info-card fade-in">
+                <img class="icon" src="pic/bed-4.png" alt="Hotel">
+                <h3>Hotel</h3>
+                <div class="time">Nocleg</div>
+                <div class="place">
+                    Grand Park Hotel<br>
+                    Szczecin
+                </div>
+                <div class="address">
+                    ul. Juliusza Słowackiego 18<br>
+                    71-434 Szczecin
+                </div>
+                <a href="https://maps.google.com/?q=Grand+Park+Hotel+Szczecin+Słowackiego+18" target="_blank" class="map-link">
+                    Zobacz na mapie →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section - Photo 3 -->
+    <section class="parallax-section">
+        <div class="parallax-bg parallax-bg-3" style="background-image: url('pic/3_web.jpg');"></div>
+        <div class="parallax-content fade-in">
+            <h2>Czekamy na Was!</h2>
+        </div>
+    </section>
+
+    <!-- Details Section (Gifts & Accommodation) -->
+    <section class="details-section" id="details">
+        <div class="ornament">✦ ✦ ✦</div>
+        <h2 class="section-title fade-in">Informacje dla gości</h2>
+        <p class="section-subtitle fade-in">Kilka praktycznych wskazówek</p>
+        <div class="details-grid">
+            <div class="detail-block fade-in">
+                <svg class="icon" viewBox="0 0 64 64">
+                    <rect x="12" y="14" width="40" height="40" rx="4"/>
+                    <line x1="12" y1="26" x2="52" y2="26"/>
+                    <line x1="22" y1="10" x2="22" y2="16"/>
+                    <line x1="42" y1="10" x2="42" y2="16"/>
+                    <path d="M22 40 L28 46 L42 32" stroke="#b8860b" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h3>Potwierdzenie obecności</h3>
+                <p>
+                    Prosimy o jak najszybsze potwierdzenie obecności, 
+                    nie później niż do <strong>31 grudnia 2026 r.</strong>
+                </p>
+                <div class="rsvp-contacts">
+                    <div class="rsvp-contact">
+                        <strong>Dawid:</strong> <a href="tel:+48698289406">+48 698 289 406</a>
+                    </div>
+                    <div class="rsvp-contact">
+                        <strong>Monika:</strong> <a href="tel:+48577918666">+48 577 918 666</a>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-block fade-in">
+                <svg class="icon" viewBox="0 0 64 64">
+                    <rect x="12" y="20" width="40" height="30" rx="2"/>
+                    <path d="M12 20 L32 38 L52 20"/>
+                    <line x1="12" y1="50" x2="26" y2="36"/>
+                    <line x1="52" y1="50" x2="38" y2="36"/>
+                </svg>
+                <h3>Prezenty</h3>
+                <p>
+                    Waszą obecność uważamy za najpiękniejszy prezent! 
+                    Jeśli jednak chcielibyście nas obdarować, 
+                    będziemy ogromnie wdzięczni za kopertę, którą przeznaczymy 
+                    na spłatę chociaż części kredytu na mieszkanie. 😉🏡<br><br>
+                    <strong>Prosimy o nieskładanie kwiatów i alkoholu.</strong>
+                </p>
+            </div>
+            <div class="detail-block fade-in">
+                <svg class="icon" viewBox="0 0 64 64">
+                    <rect x="10" y="18" width="44" height="36" rx="2"/>
+                    <path d="M10 28 L54 28"/>
+                    <rect x="18" y="34" width="10" height="8" rx="1"/>
+                    <circle cx="32" cy="12" r="4"/>
+                    <path d="M24 18 L32 6 L40 18"/>
+                </svg>
+                <h3>Noclegi</h3>
+                <p>
+                    Zapewniamy nocleg dla gości, którzy chcą zostać
+                    na noc i zjeść śniadanie hotelowe.
+                    Wesele odbywa się w Grand Park Hotel w Szczecinie,
+                    więc nie musicie się martwić o dojazd do pokoju.
+                    Prosimy o kontakt z nami w celu rezerwacji.
+                </p>
+            </div>
+            <div class="detail-block fade-in">
+                <svg class="icon" viewBox="0 0 64 64">
+                    <rect x="14" y="16" width="36" height="36" rx="4"/>
+                    <line x1="14" y1="26" x2="50" y2="26"/>
+                    <line x1="22" y1="12" x2="22" y2="18"/>
+                    <line x1="42" y1="12" x2="42" y2="18"/>
+                    <circle cx="32" cy="38" r="4"/>
+                </svg>
+                <h3>Poprawiny</h3>
+                <p>
+                    Informujemy, że poprawiny nie są planowane.<br>
+                    Dajemy z siebie wszystko pierwszego dnia,
+                    więc wybawcie się jak tylko możecie! 🎉
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="ornament">✦ ✦ ✦</div>
+        <h2 class="section-title fade-in">Galeria</h2>
+        <p class="section-subtitle fade-in">Nasze wspólne chwile</p>
+        <div class="gallery-grid fade-in" id="galleryGrid">
+            <!-- Gallery items loaded via JS or manually -->
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+        <img id="lightboxImg" src="" alt="Zdjęcie">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="names">Monika & Dawid</div>
+        <p>31 lipca 2027 · Szczecin</p>
+    </footer>
+
+    <script>
+        // ======= Gallery Images =======
+        const galleryImages = [
+            { thumb: 'pic/thumbs/0b5f2386-05dd-4867-8419-097ecf9955a2.JPG', full: 'pic/0b5f2386-05dd-4867-8419-097ecf9955a2.JPG' },
+            { thumb: 'pic/thumbs/10.JPG', full: 'pic/10.JPG' },
+            { thumb: 'pic/thumbs/10e6a620-176b-43f0-9f23-29eab91ce085.JPG', full: 'pic/10e6a620-176b-43f0-9f23-29eab91ce085.JPG' },
+            { thumb: 'pic/thumbs/IMG_0767.JPG', full: 'pic/IMG_0767.JPG' },
+            { thumb: 'pic/thumbs/IMG_1555.jpg', full: 'pic/IMG_1555.jpg' },
+            { thumb: 'pic/thumbs/IMG_1728.JPG', full: 'pic/IMG_1728.JPG' },
+            { thumb: 'pic/thumbs/IMG_2733.jpg', full: 'pic/IMG_2733.jpg' },
+            { thumb: 'pic/thumbs/IMG_3198.jpg', full: 'pic/IMG_3198.jpg' },
+            { thumb: 'pic/thumbs/IMG_3623.jpg', full: 'pic/IMG_3623.jpg' },
+            { thumb: 'pic/thumbs/IMG_3722.jpg', full: 'pic/IMG_3722.jpg' },
+            { thumb: 'pic/thumbs/IMG_4131.jpg', full: 'pic/IMG_4131.jpg' },
+            { thumb: 'pic/thumbs/IMG_6099.jpg', full: 'pic/IMG_6099.jpg' },
+            { thumb: 'pic/thumbs/IMG_6754.jpg', full: 'pic/IMG_6754.jpg' },
+            { thumb: 'pic/thumbs/IMG_8917.jpg', full: 'pic/IMG_8917.jpg' },
+            { thumb: 'pic/thumbs/aa.jpg', full: 'pic/aa.jpg' },
+            { thumb: 'pic/thumbs/aaa.jpg', full: 'pic/aaa.jpg' },
+            { thumb: 'pic/thumbs/att.UOuBrKEoH0dsV5GX0m1x1F6Fegbo3-pKtUF9dGhTXtg.JPG', full: 'pic/att.UOuBrKEoH0dsV5GX0m1x1F6Fegbo3-pKtUF9dGhTXtg.JPG' },
+            { thumb: 'pic/thumbs/f187473a-e5e4-4534-a5fb-94428da805df.JPG', full: 'pic/f187473a-e5e4-4534-a5fb-94428da805df.JPG' }
+        ];
+
+        // Build gallery grid dynamically (hides missing images, prevents any holes/empty squares)
+        const galleryGrid = document.getElementById('galleryGrid');
+        let activeImages = [];
+
+        function refreshActiveImages() {
+            activeImages = Array.from(galleryGrid.querySelectorAll('.gallery-item'))
+                .map(el => el._imageData)
+                .filter(Boolean);
+        }
+
+        galleryImages.forEach((img) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item._imageData = img;
+
+            const imgEl = document.createElement('img');
+            imgEl.alt = 'Zdjęcie';
+
+            imgEl.onerror = () => {
+                // If thumbnail doesn't exist or fails to load, remove from DOM immediately - no holes!
+                item.remove();
+                refreshActiveImages();
+            };
+
+            imgEl.onload = () => {
+                refreshActiveImages();
+            };
+
+            imgEl.src = img.thumb;
+            item.appendChild(imgEl);
+
+            item.addEventListener('click', () => {
+                const idx = activeImages.indexOf(img);
+                openLightbox(idx !== -1 ? idx : 0);
+            });
+
+            galleryGrid.appendChild(item);
+        });
+
+        refreshActiveImages();
+
+        // ======= Lightbox =======
+        let currentImageIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+
+        function openLightbox(index) {
+            if (!activeImages.length) return;
+            currentImageIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            if (!activeImages.length) return;
+            lightboxImg.src = activeImages[currentImageIndex].full;
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${activeImages.length}`;
+        }
+
+        lightboxImg.onerror = () => {
+            // Fallback to thumbnail if full resolution fails to load
+            if (activeImages[currentImageIndex] && lightboxImg.src !== activeImages[currentImageIndex].thumb) {
+                lightboxImg.src = activeImages[currentImageIndex].thumb;
+            }
+        };
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', () => {
+            if (!activeImages.length) return;
+            currentImageIndex = (currentImageIndex - 1 + activeImages.length) % activeImages.length;
+            updateLightbox();
+        });
+        document.getElementById('lightboxNext').addEventListener('click', () => {
+            if (!activeImages.length) return;
+            currentImageIndex = (currentImageIndex + 1) % activeImages.length;
+            updateLightbox();
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') {
+                if (!activeImages.length) return;
+                currentImageIndex = (currentImageIndex - 1 + activeImages.length) % activeImages.length;
+                updateLightbox();
+            }
+            if (e.key === 'ArrowRight') {
+                if (!activeImages.length) return;
+                currentImageIndex = (currentImageIndex + 1) % activeImages.length;
+                updateLightbox();
+            }
+        });
+
+        // Touch swipe support for lightbox on mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            if (!activeImages.length) return;
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe left -> next image
+                currentImageIndex = (currentImageIndex + 1) % activeImages.length;
+                updateLightbox();
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe right -> prev image
+                currentImageIndex = (currentImageIndex - 1 + activeImages.length) % activeImages.length;
+                updateLightbox();
+            }
+        }
+
+        // ======= Countdown Timer =======
+        const weddingDate = new Date('2027-07-31T14:00:00+02:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '0';
+                document.getElementById('hours').textContent = '0';
+                document.getElementById('minutes').textContent = '0';
+                document.getElementById('seconds').textContent = '0';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ======= Scroll Animations =======
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+    </script>
+
+</body>
+</html>
